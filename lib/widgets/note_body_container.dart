@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/notes_view_body_column.dart';
+import 'package:notes_app/widgets/custom_list_tile.dart';
 
 class NoteBodyContainer extends StatelessWidget {
   const NoteBodyContainer({
@@ -9,15 +9,30 @@ class NoteBodyContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24),
+      padding: const EdgeInsets.only(top: 16.0, left: 16, right: 16),
       child: Container(
-        height: 250,
-        width: 400,
+        padding: const EdgeInsets.only(
+          top: 24,
+          bottom: 24,
+          left: 16,
+        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.orange,
         ),
-        child: const NoteBodyContainerColumn(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            const CustomListTile(),
+            Padding(
+              padding: const EdgeInsets.only(right: 24.0, top: 16),
+              child: Text('Nov 13 , 2023',
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black.withOpacity(0.4))),
+            ),
+          ],
+        ),
       ),
     );
   }
