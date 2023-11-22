@@ -28,7 +28,11 @@ class NotesView extends StatelessWidget {
           'Notes',
           style: TextStyle(fontSize: 25),
         ),
-        actions: const [CustomSearchIcon()],
+        actions: const [
+          CustomSearchIcon(
+            icons: Icons.search,
+          )
+        ],
         backgroundColor: Colors.transparent,
       ),
       body: const NotesViewBody(),
