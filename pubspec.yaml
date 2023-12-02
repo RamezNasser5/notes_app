@@ -41,6 +41,7 @@ dependencies:
   bloc: ^8.1.2
   modal_progress_hud_nsn: ^0.4.0
   meta: ^1.9.1
+  intl: ^0.18.1
 
 dev_dependencies:
   
