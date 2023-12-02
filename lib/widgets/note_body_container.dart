@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 import 'package:notes_app/widgets/custom_list_tile.dart';
 
 class NoteBodyContainer extends StatelessWidget {
   const NoteBodyContainer({
     super.key,
+    required this.noteModel,
   });
+
+  final NoteModel noteModel;
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +29,18 @@ class NoteBodyContainer extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Colors.orange,
+            color: Color(noteModel.color),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const CustomListTile(),
+              CustomListTile(
+                noteModel: noteModel,
+              ),
               Padding(
                 padding: const EdgeInsets.only(right: 24.0, top: 16),
-                child: Text('Nov 13 , 2023',
+                child: Text(noteModel.date,
                     style: TextStyle(
                         fontSize: 16, color: Colors.black.withOpacity(0.4))),
               ),

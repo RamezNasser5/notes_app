@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/models/note_model.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
     super.key,
+    required this.noteModel,
   });
+
+  final NoteModel noteModel;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: const Text(
-        'Flutter tips',
-        style: TextStyle(fontSize: 26, color: Colors.black),
+      title: Text(
+        noteModel.title,
+        style: const TextStyle(fontSize: 26, color: Colors.black),
       ),
       subtitle: Padding(
         padding: const EdgeInsets.only(top: 16.0),
         child: Text(
-          'Build your career with Ramez Nasser',
+          noteModel.subTitle,
           style: TextStyle(fontSize: 20, color: Colors.black.withOpacity(0.5)),
         ),
       ),

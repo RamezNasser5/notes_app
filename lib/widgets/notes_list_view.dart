@@ -31,7 +31,9 @@ class _NotesListViewState extends State<NotesListView> {
               physics: const BouncingScrollPhysics(),
               itemCount: notes.length,
               itemBuilder: (context, index) {
-                return const NoteBodyContainer();
+                return NoteBodyContainer(
+                  noteModel: notes[index],
+                );
               }),
         );
       },
