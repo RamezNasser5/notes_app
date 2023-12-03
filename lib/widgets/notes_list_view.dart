@@ -24,6 +24,11 @@ class _NotesListViewState extends State<NotesListView> {
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
+        if(BlocProvider.of<NotesCubit>(context).notes!.isEmpty) {
+          return const Center(
+            child: Text('Your Notes Will Appear Here'),
+          );
+        }
         List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes!;
         return Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
