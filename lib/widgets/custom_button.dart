@@ -9,7 +9,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          top: 100.0, bottom: MediaQuery.of(context).viewInsets.bottom),
+          top: 50.0, bottom: MediaQuery.of(context).viewInsets.bottom),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
