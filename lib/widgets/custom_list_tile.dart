@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/consts.dart';
 import 'package:notes_app/cubits/cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 
@@ -29,6 +30,7 @@ class CustomListTile extends StatelessWidget {
         onPressed: () {
           noteModel.delete();
           BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+          showSuccessSnackBar(context, 'Your Note deleted Successfuly');
         },
         icon: const Icon(
           Icons.delete,

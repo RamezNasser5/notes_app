@@ -4,6 +4,7 @@ import 'package:notes_app/cubits/cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_search_icon.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:notes_app/widgets/edit_note_colors_list_view.dart';
 
 class EditNoteView extends StatefulWidget {
   const EditNoteView({super.key, required this.noteModel});
@@ -46,6 +47,7 @@ class _EditNoteViewState extends State<EditNoteView> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: CustomTextField(
+              initialValue: widget.noteModel.title,
               onChanged: (value) {
                 title = value;
               },
@@ -58,12 +60,16 @@ class _EditNoteViewState extends State<EditNoteView> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: CustomTextField(
+              initialValue: widget.noteModel.subTitle,
               onChanged: (value) {
                 content = value;
               },
               hint: widget.noteModel.subTitle,
               maxLine: 5,
             ),
+          ),
+          EditNoteColorsListView(
+            noteModel: widget.noteModel,
           ),
         ],
       ),
